@@ -15,4 +15,6 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 @app.task(bind=True)
 def debug_task(self):
+    with open('/home/minhkma/minhkma.txt', 'a') as the_file:
+        the_file.write('Hello\n')
     print('Request: {0!r}'.format(self.request))
